@@ -2,16 +2,16 @@
 console.log("Running Script.js");
 /*---------------------------------------------------------VARIABLE  DECLARATION---------------------------------------------------------*/
 //Location information
-let locations = ["Hyrule caslte", "Hyrule caslte", "Hyrule feild", "Hyrule feild", "Kokiri village", "Field town"];
-let locationX = [-14, -9, -24, -20, -25, -6];
-let locationY = [12, -1, 1, -14, 4, -9];
-let locationW = [9, 9, 10, 10, 10, 16];
-let locationH = [20, 7, 25, 10, 10, 20];
-let locationID = [1, 1, 2, 2, 3, 4];
+let locations = ["Hyrule caslte", "Hyrule caslte", "Hyrule feild", "Hyrule feild", "Kokiri village", "Field town", "lost woods", "forest village", "forest temple", "forest temple", "tower of spirits", "northern town"];
+let locationX = [-14, -9, -24, -20, -25, -6, -40, -38, -43.5, -45.5, 0.5, -43.5];
+let locationY = [12, -1, 1, -14, 4, -9, -23, -15, -7, -7, 60, 23];
+let locationW = [9, 9, 10, 10, 10, 16, 16, 12, 7, 3, 10, 10];
+let locationH = [20, 7, 25, 10, 10, 20, 16, 10, 7, 9, 45, 15];
+let locationID = [1, 1, 2, 2, 3, 4, 5, 6, 7, 7, 8, 9];
 //Price is defined by getting the price with locationTravelPrice[locationID[i]]
-let locationTravelPrice = [0, 1, 1, 1, 1];
+let locationTravelPrice = [0, 1, 1, 1, 1, 4, 1, 5, 12, 1];
 //so is the displayed location for the recipt
-let locationDisplayName = ["N/A", "Hyrule castle", "Hyrule feild", "Kokiri village", "Field town"]
+let locationDisplayName = ["N/A", "Hyrule castle", "Hyrule feild", "Kokiri village", "Field town", "Lost woods", "Forest village", "Forest temple", "The tower of spirits", "Northern village"]
 
 //temporary list info, picked route
 let pickedRouteLocations = [];
@@ -73,7 +73,7 @@ function placeButton(_number) {
     let tmp= _number -1;
     let x = ((50 + locationX[tmp]) - (locationW[tmp]/2));
     let y = ((50 + locationY[tmp]) - (locationH[tmp]/2)) * (2/3);
-    OUTPUT.innerHTML += "<button style='background-color: rgba(255, 255, 255, 0); position: absolute; padding:0; border:0; margin-left:" + ((50 + locationX[tmp]) - (locationW[tmp]/2)) + "%; margin-top:" + (100-((50 + locationY[tmp]) - (locationH[tmp]/2))) * (2/3) + "%; width: " + locationW[tmp] + "%; height: " + locationH[tmp] + "%;' onclick=' addLocation(" + locationID[tmp] + ") '> </button>";
+    OUTPUT.innerHTML += "<button style='background-color: rgba(255, 255, 255, 0.5); position: absolute; padding:0; border:0; margin-left:" + ((50 + locationX[tmp]) - (locationW[tmp]/2)) + "%; margin-top:" + (100-((50 + locationY[tmp]) - (locationH[tmp]/2))) * (2/3) + "%; width: " + locationW[tmp] + "%; height: " + locationH[tmp] + "%;' onclick=' addLocation(" + locationID[tmp] + ") '> </button>";
     console.log(((50+locationY[tmp]) - locationH[tmp]));
 }
 function addLocation(_id) {
