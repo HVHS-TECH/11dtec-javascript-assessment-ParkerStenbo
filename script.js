@@ -75,7 +75,7 @@ function placeButton(_number) {
     let tmp= _number -1;
     let x = ((50 + locationX[tmp]) - (locationW[tmp]/2));
     let y = ((50 + locationY[tmp]) - (locationH[tmp]/2)) * (2/3);
-    OUTPUT.innerHTML += "<button style='background-color: rgba(255, 255, 255, 0); position: absolute; padding:0; border:0; margin-left:" + ((50 + locationX[tmp]) - (locationW[tmp]/2)) + "%; margin-top:" + (100-((50 + locationY[tmp]) - (locationH[tmp]/2))) * (2/3) + "%; width: " + locationW[tmp] + "%; height: " + locationH[tmp] + "%;' onclick=' addLocation(" + locationID[tmp] + ") '> </button>";
+    OUTPUT.innerHTML += "<button style='background-color: rgba(0, 0, 0, 0); position: absolute; padding:0; border:0; margin-left:" + ((50 + locationX[tmp]) - (locationW[tmp]/2)) + "%; margin-top:" + (100-((50 + locationY[tmp]) - (locationH[tmp]/2))) * (2/3) + "%; width: " + locationW[tmp] + "%; height: " + locationH[tmp] + "%;' onclick=' addLocation(" + locationID[tmp] + ") '> </button>";
     console.log(((50+locationY[tmp]) - locationH[tmp]));
 }
 function addLocation(_id) {
