@@ -75,7 +75,7 @@ function placeButton(_number) {
     let tmp= _number -1;
     let x = ((50 + locationX[tmp]) - (locationW[tmp]/2));
     let y = ((50 + locationY[tmp]) - (locationH[tmp]/2)) * (2/3);
-    OUTPUT.innerHTML += "<button style='background-color: rgba(255, 255, 255, 0); position: absolute; padding:0; border:0; margin-left:" + ((50 + locationX[tmp]) - (locationW[tmp]/2)) + "%; margin-top:" + (100-((50 + locationY[tmp]) - (locationH[tmp]/2))) * (2/3) + "%; width: " + locationW[tmp] + "%; height: " + locationH[tmp] + "%;' onclick=' addLocation(" + locationID[tmp] + ") '> </button>";
+    OUTPUT.innerHTML += "<button style='cursor: pointer; background-color: rgba(255, 255, 255, 0); position: absolute; padding:0; border:0; margin-left:" + ((50 + locationX[tmp]) - (locationW[tmp]/2)) + "%; margin-top:" + (100-((50 + locationY[tmp]) - (locationH[tmp]/2))) * (2/3) + "%; width: " + locationW[tmp] + "%; height: " + locationH[tmp] + "%;' onclick=' addLocation(" + locationID[tmp] + ") '> </button>";
     console.log(((50+locationY[tmp]) - locationH[tmp]));
 }
 function addLocation(_id) {
@@ -103,13 +103,17 @@ function book()
 {
     if (pickedRouteLocations.length > 1)
     {
-        PREVIEW.innerHTML = "SUCCESSFULLY BOOKED!"
+        sessionStorage.setItem("PickedRouteLocations", JSON.stringify(pickedRouteLocations));
+        sessionStorage.setItem("PickedRoutePrices", JSON.stringify(pickedRoutePrices));
+        sessionStorage.setItem("TotalPrice", totalPrice);
+        PREVIEW.innerHTML = "SUCCESSFULLY BOOKED!";
+        location.href="Recipt.html";
     }
     else
     {PREVIEW.innerHTML = "<p>Your route:</p>";
         listChosenLocations();
-        PREVIEW.innerHTML += "<p>Please choose at least 1 destination!</p>"
-        PREVIEW.innerHTML += "<button class='purchaseButtons' onclick='book()'>Book!!</button> <button class='purchaseButtons' onclick='reset()'>Reset</button> <button class='purchaseButtons' onclick='undoLast()'>UNDO!!</button>"
+        PREVIEW.innerHTML += "<p>Please choose at least 1 destination!</p>";
+        PREVIEW.innerHTML += "<button class='purchaseButtons' onclick='book()'>Book!!</button> <button class='purchaseButtons' onclick='reset()'>Reset</button> <button class='purchaseButtons' onclick='undoLast()'>UNDO!!</button>";
     }
 }
 function undoLast()

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" type="icon" href="Images/Icon.webp">
+<title>Hyrule transport</title>
+</head>
+<body>
+<div id="ReciptDiv">
+ <p>hello?</p>
+</div>
+<script>
+    //Getting variables!------------------------------------------------------------------
+    RECIPT = document.getElementById("ReciptDiv");
+    let pickedRouteLocations = JSON.parse(sessionStorage.getItem("PickedRouteLocations"));
+    let pickedRoutePrices = JSON.parse(sessionStorage.getItem("PickedRoutePrices"));
+    console.log(sessionStorage.getItem("PickedRoutePrices"));
+    console.log(sessionStorage.getItem("PickedRouteLocations"));
+
+    //Writing to the page-----------------------------------------------------------------
+    RECIPT.innerHTML = "<H1>YOUR TICKET</H1> <br> <br>";
+
+    RECIPT.innerHTML += "<p>traveling from: " + pickedRouteLocations[0] + "</p>";
+
+    for (let i = 1; i < (pickedRouteLocations.length-1); i++)
+    {
+        RECIPT.innerHTML += "<p>before passing through: " + pickedRouteLocations[i] + " (" + pickedRoutePrices[i] + " rupees)</p>";
+    }
+
+    RECIPT.innerHTML += "<p>and arriving at: " + pickedRouteLocations[pickedRouteLocations.length-1] + " (" + pickedRoutePrices[pickedRouteLocations.length-1] + " rupees)</p>";
+</script>
+</body>
+</html>
