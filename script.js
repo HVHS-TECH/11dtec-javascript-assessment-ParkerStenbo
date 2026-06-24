@@ -11,9 +11,9 @@ let locationID = [1,                1,               2,              2,         
 
 
 //Price is defined by getting the price with locationTravelPrice[locationID[i]]
-let locationTravelPrice = [0,      1,              1,                1,               1,            4,             1,               5,              12,                       1,                 1,             2,       2,            1,                1,             20,                                0.5,           1];
+let locationTravelPrice = [0,      1,              1,                1,               1,            4,             1,               5,              12,                       1,                 1,             2,       2,            1,                1,             20,                                0.5,           1,               10000000];
 //so is the displayed location for the recipt
-let locationDisplayName = ["N/A", "Hyrule castle", "Hyrule feild", "Kokiri village", "Field town", "Lost woods", "Forest village", "Forest temple", "The tower of spirits", "Northern village", "Desert Town", "Desert", "Big island", "Island village", "Harbor town", "Isolated island & Ocean temple", "Twin tunnels", "Northern lake"];
+let locationDisplayName = ["N/A", "Hyrule castle", "Hyrule feild", "Kokiri village", "Field town", "Lost woods", "Forest village", "Forest temple", "The tower of spirits", "Northern village", "Desert Town", "Desert", "Big island", "Island village", "Harbor town", "Isolated island & Ocean temple", "Twin tunnels", "Northern lake", "coniferous forest"];
 
 //temporary list info, picked route
 let pickedRouteLocations = [];
