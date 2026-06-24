@@ -13,6 +13,7 @@
     RECIPT = document.getElementById("ReciptDiv");
     let pickedRouteLocations = JSON.parse(sessionStorage.getItem("PickedRouteLocations"));
     let pickedRoutePrices = JSON.parse(sessionStorage.getItem("PickedRoutePrices"));
+    let totalPrice = sessionStorage.getItem("TotalPrice")
     console.log(sessionStorage.getItem("PickedRoutePrices"));
     console.log(sessionStorage.getItem("PickedRouteLocations"));
 
@@ -27,6 +28,8 @@
     }
 
     RECIPT.innerHTML += "<p>and arriving at: " + pickedRouteLocations[pickedRouteLocations.length-1] + " (" + pickedRoutePrices[pickedRouteLocations.length-1] + " rupees)</p>";
+    RECIPT.innerHTML += "<p>Costing a total of " + totalPrice + " rupees</p>";
+    RECIPT.innerHTML += "<p>Ticket number: " + sessionStorage.getItem("OrderNumber") + "</p>";
 </script>
 </body>
 </html>
