@@ -20,16 +20,16 @@
     //Writing to the page-----------------------------------------------------------------
     RECIPT.innerHTML = "<H1>YOUR TICKET</H1> <br> <br>";
 
-    RECIPT.innerHTML += "<p>traveling from: " + pickedRouteLocations[0] + "</p>";
+    RECIPT.innerHTML += "<h1>traveling from: " + pickedRouteLocations[0] + "</h1>";
 
     for (let i = 1; i < (pickedRouteLocations.length-1); i++)
     {
-        RECIPT.innerHTML += "<p>before passing through: " + pickedRouteLocations[i] + " (" + pickedRoutePrices[i] + " rupees)</p>";
+        RECIPT.innerHTML += "<h1>before passing through: " + pickedRouteLocations[i] + " (" + pickedRoutePrices[i] + " <img src='Images/Green Rupee.png'>)</h1>";
     }
 
-    RECIPT.innerHTML += "<p>and arriving at: " + pickedRouteLocations[pickedRouteLocations.length-1] + " (" + pickedRoutePrices[pickedRouteLocations.length-1] + " rupees)</p>";
-    RECIPT.innerHTML += "<p>Costing a total of " + totalPrice + " rupees</p>";
-    RECIPT.innerHTML += "<p>Ticket number: " + sessionStorage.getItem("OrderNumber") + "</p>";
+    RECIPT.innerHTML += "<h1>and arriving at: " + pickedRouteLocations[pickedRouteLocations.length-1] + " (" + pickedRoutePrices[pickedRouteLocations.length-1] + " <img src='Images/Green Rupee.png'>)</h1>";
+    RECIPT.innerHTML += "<h1>Costing a total of " + totalPrice + " <img src='Images/Green Rupee.png'></h1>";
+    RECIPT.innerHTML += "<h1>Ticket number: " + sessionStorage.getItem("OrderNumber") + "</h1>";
 </script>
 </body>
 </html>
