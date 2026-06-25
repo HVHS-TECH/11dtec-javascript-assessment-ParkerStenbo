@@ -68,7 +68,7 @@ function listChosenLocations()
         }
     }
     PREVIEW.innerHTML += "<p>"+ routeList +"</p>";
-    PREVIEW.innerHTML += "<p>This trip should cost around: " + totalPrice + " Rupees</p>";
+    PREVIEW.innerHTML += "<h1>This trip should cost around: " + totalPrice + " <img src='Images/Green Rupee.png'></h1>";
 }
 
 function placeButton(_number) {
