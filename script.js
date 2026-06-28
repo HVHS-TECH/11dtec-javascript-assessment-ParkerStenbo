@@ -1,7 +1,8 @@
 /*-------------------------------------------------------------PROGRAM START-------------------------------------------------------------*/
 console.log("Running Script.js");
 /*---------------------------------------------------------VARIABLE  DECLARATION---------------------------------------------------------*/
-//Location information
+
+//LOCATION INFORMATION===============------------------
 let locations = ["Hyrule caslte", "Hyrule caslte", "Hyrule feild", "Hyrule feild", "Kokiri village", "Field town", "lost woods", "forest village", "forest temple", "forest temple", "tower of spirits", "northern town", "northern town", "desert town", "desert", "big island", "island village", "harbor town", "isolated island", "Twin tunnels", "Northern lake", "coniferous forest"];
 let locationX = [-14,               -9,              -24,            -20,            -25,              -6,          -40,          -38,              -43.5,          -45.5,            0.5,                -43.5,           -43.5,           7.5,           13,       22,           23.5,             36,            41,                -30,           -38,             -17];
 let locationY = [10.5,              -2,              -6,             -15,            2.5,              -10,         -25,          -17,              -8,             -9,               60,                 23,              10,              -12,           3,        -18,          -8.5,             7,             -23,                12,           26,              26];
@@ -11,17 +12,27 @@ let locationID = [1,                1,               2,              2,         
 
 
 //Price is defined by getting the price with locationTravelPrice[locationID[i]]
-let locationTravelPrice = [0,      1,              1,                1,               1,            4,             1,               5,              12,                       1,                 1,             2,       2,            1,                1,             20,                                0.5,           1,               10000000];
+let locationTravelPrice = [0,      1,              1,                1,               1,            4,             1,               5,              12,                       1,                 1,             2,       2,            1,                1,             20,                                1,           1,               10000];
 //so is the displayed location for the recipt
 let locationDisplayName = ["N/A", "Hyrule castle", "Hyrule feild", "Kokiri village", "Field town", "Lost woods", "Forest village", "Forest temple", "The tower of spirits", "Northern village", "Desert Town", "Desert", "Big island", "Island village", "Harbor town", "Isolated island & Ocean temple", "Twin tunnels", "Northern lake", "coniferous forest"];
 
+//CURRENCY===========================------------------
+//Storing Rupee names
+let rupees = ["you should not be seeing this!", "Green Rupee.png", "Blue Rupee.png", "Red Rupee.png", "Purple Rupee.png", "Silver Rupee.png", "Gold Rupee.png"];
+//storing rupee values
+let rupeeValue = [-1,                           1,                 5,                20,              50,                 100,                200];
+
+
+//MISC===============================------------------
 //temporary list info, picked route
 let pickedRouteLocations = [];
 let pickedRoutePrices = [];
 
 //running total price
 let totalPrice;
+let totalRupees = [];
 
+//CONSTANTS==========================------------------
 const OUTPUT = document.getElementById("buttonsContainer");
 const PREVIEW = document.getElementById("BottomBar");
 console.log("variables declared successfully");
@@ -48,7 +59,6 @@ function refreshBottomBar()
     }
     else
     {
-        PREVIEW.innerHTML = "<p>Your route:</p>";
         listChosenLocations();
         PREVIEW.innerHTML += "<button class='purchaseButtons' onclick='book()'>Book!!</button> <button class='purchaseButtons' onclick='reset()'>Reset</button> <button class='purchaseButtons' onclick='undoLast()'>UNDO!!</button>"
     }   
@@ -67,8 +77,9 @@ function listChosenLocations()
             routeList += "  >  ";
         }
     }
+    PREVIEW.innerHTML = "<p>Your route:</p>";
     PREVIEW.innerHTML += "<p>"+ routeList +"</p>";
-    PREVIEW.innerHTML += "<h1>This trip should cost around: " + totalPrice + " <img src='Images/Green Rupee.png'></h1>";
+    displayRupees(totalPrice);
 }
 
 function placeButton(_number) {
@@ -97,6 +108,7 @@ function reset()
 {
     pickedRouteLocations = [];
     pickedRoutePrices = [];
+    totalRupees = [];
     refreshBottomBar();
 }
 function book()
@@ -125,4 +137,53 @@ function undoLast()
     pickedRouteLocations.splice((pickedRouteLocations.length-1));
     pickedRoutePrices.splice(pickedRouteLocations.length);
     refreshBottomBar();
+}
+function displayRupees(_value)
+{
+    console.log("");
+    console.log("Testing Loop");
+    totalRupees = [];
+    console.log(_value);
+    for (let i = _value; i >= 0;)
+    {
+        console.log(i);
+        if (i > 0)
+        {
+            console.log(i);
+            console.log("");
+            for (let j = rupees.length; j > 0; j --)
+            {
+                //console.log("");
+                //console.log(j);
+                //console.log(rupeeValue[j]);
+                //console.log((rupeeValue[j] <= i));
+                if (rupeeValue[j] <= i)
+                {
+                    console.log("");
+                    i -= rupeeValue[j];
+                    totalRupees.push(rupees[j]);
+                    console.log(totalRupees);
+                    j = 0;
+                }
+
+            }
+            //console.log("");
+            //console.log(totalRupees);
+        }
+        else {
+            i -= 1;
+        }
+    }
+    let tmp = "<h1>This trip should cost around: ";
+    for (let i = 0; i < totalRupees.length; i ++)
+    {
+        tmp += "<img src='images/" + totalRupees[i] + "'>";
+        tmp += " ";
+        console.log(totalRupees[i])
+    }
+    tmp += "</h1>";
+    PREVIEW.innerHTML += tmp;
+    console.log("TotalRupees:");
+    console.log(totalRupees);
+    console.log("");
 }
