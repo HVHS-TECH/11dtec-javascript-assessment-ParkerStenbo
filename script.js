@@ -104,6 +104,7 @@ function addLocation(_id) {
     refreshBottomBar();
 }
 
+
 function reset()
 {
     pickedRouteLocations = [];
