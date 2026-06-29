@@ -180,12 +180,12 @@ function displayRupees(_value)
         let tmp = "<h1>This trip should cost around: ";
         for (let i = 0; i < totalRupees.length; i ++)
         {
-            tmp += "<img src='images/" + totalRupees[i] + "'>";
+            tmp += "<img src='https://hvhs-tech.github.io//11dtec-javascript-assessment-ParkerStenbo/Images/" + totalRupees[i] + "'>";
             tmp += " ";
             console.log(totalRupees[i])
         }
         tmp += "</h1>";
-        tmp += "<img src='images/Blue Rupee.png'>";
+        tmp += "<img src='https://hvhs-tech.github.io//11dtec-javascript-assessment-ParkerStenbo/Images/Blue Rupee.png'>";
         PREVIEW.innerHTML += tmp;
     }
     else
