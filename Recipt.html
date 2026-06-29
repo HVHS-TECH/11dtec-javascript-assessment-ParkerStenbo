@@ -16,6 +16,11 @@
     let totalPrice = sessionStorage.getItem("TotalPrice")
     console.log(sessionStorage.getItem("PickedRoutePrices"));
     console.log(sessionStorage.getItem("PickedRouteLocations"));
+    //CURRENCY===========================------------------
+    //Storing Rupee names
+    let rupees = ["you should not be seeing this!", "Green Rupee.png", "Blue Rupee.png", "Red Rupee.png", "Purple Rupee.png", "Silver Rupee.png", "Gold Rupee.png"];
+    //storing rupee values
+    let rupeeValue = [-1,                           1,                 5,                20,              50,                 100,                200];
 
     //Writing to the page-----------------------------------------------------------------
     RECIPT.innerHTML = "<H1>YOUR TICKET</H1> <br> <br>";
@@ -30,6 +35,63 @@
     RECIPT.innerHTML += "<h1>and arriving at: " + pickedRouteLocations[pickedRouteLocations.length-1] + " (" + pickedRoutePrices[pickedRouteLocations.length-1] + " <img src='Images/Green Rupee.png'>)</h1>";
     RECIPT.innerHTML += "<h1>Costing a total of " + totalPrice + " <img src='Images/Green Rupee.png'></h1>";
     RECIPT.innerHTML += "<h1>Ticket number: " + sessionStorage.getItem("OrderNumber") + "</h1>";
+
+    function displayRupees(_value)
+    {
+        console.log("");
+        console.log("Testing Loop");
+        totalRupees = [];
+        console.log(_value);
+        for (let i = _value; i >= 0;)
+        {
+            console.log(i);
+            if (i > 0)
+            {
+                console.log(i);
+                console.log("");
+                for (let j = rupees.length; j > 0; j --)
+                {
+                    //console.log("");
+                    //console.log(j);
+                    //console.log(rupeeValue[j]);
+                    //console.log((rupeeValue[j] <= i));
+                    if (rupeeValue[j] <= i)
+                    {
+                        console.log("");
+                        i -= rupeeValue[j];
+                        totalRupees.push(rupees[j]);
+                        console.log(totalRupees);
+                        j = 0;
+                    }
+
+                }
+                //console.log("");
+                //console.log(totalRupees);
+            }
+            else {
+                i -= 1;
+            }
+        }
+        if (totalPrice >= 1)
+        {
+            let tmp = "<h1>This trip should cost around: ";
+            for (let i = 0; i < totalRupees.length; i ++)
+            {
+                tmp += "<img src='images/" + totalRupees[i] + "'>";
+                tmp += " ";
+                console.log(totalRupees[i])
+            }
+            tmp += "</h1>";
+            PREVIEW.innerHTML += tmp;
+        }
+        else
+        {
+            PREVIEW.innerHTML += ""
+        }
+        console.log("TotalRupees:");
+        console.log(totalRupees);
+        console.log("");
+    }
 </script>
 
 </body>
