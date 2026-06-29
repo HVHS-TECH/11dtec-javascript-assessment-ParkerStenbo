@@ -185,7 +185,6 @@ function displayRupees(_value)
             console.log(totalRupees[i])
         }
         tmp += "</h1>";
-        tmp += "<img src='https://hvhs-tech.github.io//11dtec-javascript-assessment-ParkerStenbo/Images/Blue Rupee.png'>";
         PREVIEW.innerHTML += tmp;
     }
     else
